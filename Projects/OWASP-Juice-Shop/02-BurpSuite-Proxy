@@ -1,0 +1,100 @@
+# Burp Suite Proxy Configuration
+
+## Objective
+
+Learn how to configure Burp Suite as an intercepting proxy between Firefox and OWASP Juice Shop to capture and inspect HTTP requests.
+
+---
+
+## Overview
+
+Burp Suite is an intercepting proxy used by Application Security Engineers and Penetration Testers to inspect, modify, and analyze web traffic between a browser and a web application.
+
+---
+
+## Lab Environment
+
+* Host OS: Windows 11
+* Guest OS: Kali Linux
+* Virtualization: VMware / VirtualBox
+* Docker
+* OWASP Juice Shop
+* Burp Suite Community Edition
+* Mozilla Firefox
+
+---
+
+## Prerequisites
+
+* Docker installed and running
+* OWASP Juice Shop container running
+* Juice Shop accessible at:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Network Flow
+
+```text
+Firefox
+    │
+    ▼
+Burp Suite (Intercepting Proxy)
+    │
+    ▼
+OWASP Juice Shop
+```
+
+---
+
+## Lab Tasks
+
+* Launch Burp Suite.
+* Create a Temporary Project.
+* Select **Use Burp Defaults**.
+* Configure Firefox to use Burp Suite as its proxy.
+* Enable request interception.
+* Capture the first HTTP request.
+* Analyze the intercepted request.
+
+---
+
+## Firefox Proxy Configuration
+
+| Setting                          | Value     |
+| -------------------------------- | --------- |
+| HTTP Proxy                       | 127.0.0.1 |
+| Port                             | 8080      |
+| Use this proxy for all protocols | Enabled   |
+
+---
+
+## Expected HTTP Request
+
+```http
+GET / HTTP/1.1
+Host: localhost:3000
+```
+
+---
+
+## Learning Objectives
+
+* Understand the purpose of an intercepting proxy.
+* Learn how browser traffic flows through Burp Suite.
+* Capture and inspect HTTP requests.
+* Prepare the environment for future Application Security testing.
+
+---
+
+## Screenshots
+
+After completing the lab, add the following screenshots to the `Screenshots` folder:
+
+* Burp Suite startup screen
+* Firefox proxy configuration
+* First intercepted HTTP request
+* Burp Suite Proxy → Intercept tab
